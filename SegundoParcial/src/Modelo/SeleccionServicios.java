@@ -64,7 +64,7 @@ public class SeleccionServicios {
         try{
             
            PreparedStatement consulta;
-           consulta = conexion.prepareStatement("select * from sleccion where id=? ");
+           consulta = conexion.prepareStatement("select * from seleccion where id=? ");
            consulta.setInt(1, d.getId());
           ResultSet rs = consulta.executeQuery();
           
@@ -100,16 +100,17 @@ public class SeleccionServicios {
         try{
             
            PreparedStatement consulta;
-           consulta = conexion.prepareStatement("UPDATE docente set nombre=?,continente_id=?, tecnico=?, goles_favor=?, goles_contra=?, partidos_ganados=?, partidos_perdidos=?, partidos_jugados=?");
+           consulta = conexion.prepareStatement("UPDATE seleccion set nombre=?,continente_id=?, tecnico=?, goles_favor=?, goles_contra=?, partidos_ganados=?, partidos_perdidos=?, partidos_jugados=? where id=?");
           
            consulta.setString(1, d.getNombre());
-           consulta.setInt(3, d.getContinente_id());
-           consulta.setString(4, d.getTecnico());
-           consulta.setInt(5, d.getGoles_favor());
-           consulta.setInt(6, d.getGoles_contra());
-           consulta.setInt(7, d.getPartidos_ganados());
-           consulta.setInt(8, d.getPartidos_perdidos());
-           consulta.setInt(9, d.getPartidos_jugados());
+           consulta.setInt(2, d.getContinente_id());
+           consulta.setString(3, d.getTecnico());
+           consulta.setInt(4, d.getGoles_favor());
+           consulta.setInt(5, d.getGoles_contra());
+           consulta.setInt(6, d.getPartidos_ganados());
+           consulta.setInt(7, d.getPartidos_perdidos());
+           consulta.setInt(8, d.getPartidos_jugados());
+           consulta.setInt(9,d.getId());
            consulta.executeUpdate();
             
         }
