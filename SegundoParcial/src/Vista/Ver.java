@@ -72,6 +72,8 @@ public class Ver extends javax.swing.JFrame {
         txtPartidosg = new javax.swing.JTextField();
         txtPartidosp = new javax.swing.JTextField();
         txtPartidosj = new javax.swing.JTextField();
+        btnMPG = new javax.swing.JButton();
+        btnMDG = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -129,6 +131,20 @@ public class Ver extends javax.swing.JFrame {
             }
         });
 
+        btnMPG.setText("Mayor partidos ganados");
+        btnMPG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMPGActionPerformed(evt);
+            }
+        });
+
+        btnMDG.setText("Mejor difrencia gol");
+        btnMDG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMDGActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -163,11 +179,18 @@ public class Ver extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnGuardar)
                             .addComponent(btnEliminar))
-                        .addGap(71, 71, 71)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnActualizar)
-                            .addComponent(btnBuscar))))
-                .addContainerGap(67, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(btnBuscar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnMPG))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(btnActualizar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnMDG)))))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,11 +234,13 @@ public class Ver extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
-                    .addComponent(btnBuscar))
+                    .addComponent(btnBuscar)
+                    .addComponent(btnMPG))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnActualizar)
-                    .addComponent(btnEliminar))
+                    .addComponent(btnEliminar)
+                    .addComponent(btnMDG))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -226,7 +251,7 @@ public class Ver extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,6 +360,28 @@ public class Ver extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnActualizarActionPerformed
 
+    private void btnMPGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMPGActionPerformed
+      
+        Seleccion d = new Seleccion();
+        Servicios s = new Servicios();
+        
+        
+        
+        Alerta("la mayor cantidad de partidos ganados es de "+s.MayorD(d)+" por la seleccion de "+s.MayorS(d), "Mayor Cantidad de Partidos Ganados!!");
+        
+    }//GEN-LAST:event_btnMPGActionPerformed
+
+    private void btnMDGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMDGActionPerformed
+     
+        Seleccion d = new Seleccion();
+        Servicios s = new Servicios();
+        
+        
+        
+        Alerta("la mejor diferencia de goles es de "+s.MayorDifM(d)+" por la seleccion de "+s.MayorS(d), "Mejor Diferencia de gol!!");
+        
+    }//GEN-LAST:event_btnMDGActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -345,6 +392,8 @@ public class Ver extends javax.swing.JFrame {
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnGuardar;
+    public javax.swing.JButton btnMDG;
+    public javax.swing.JButton btnMPG;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

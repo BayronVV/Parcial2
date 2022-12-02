@@ -12,6 +12,11 @@ package Modelo;
 import java.sql.*;
 public class SeleccionServicios {
     
+   public Integer m,m1;
+   public String n,n1;
+          
+   
+   
     public void guardar(Connection conexion, Seleccion d) throws SQLException{
     
         try{
@@ -119,5 +124,64 @@ public class SeleccionServicios {
             throw new SQLException(ex);
         
         }
+    }
+    
+    public void mayorGoles(Connection conexion, Seleccion d)throws SQLException{
+      
+         
+        try{
+            
+           Statement sta = conexion.createStatement();
+           String consulta = "select max(partidos_ganados) as mayor,max(nombre) as nombre from seleccion";
+           ResultSet rs = sta.executeQuery(consulta);
+      
+           rs.next();
+            m = rs.getInt("mayor");
+          
+            n = rs.getString("nombre");
+       
+       
+      
+         
+           rs.close();
+           sta.close();
+            
+        }
+        catch (SQLException ex){
+            
+            throw new SQLException(ex);
+        
+        }
+        
+    }
+    
+    public void mayorDif(Connection conexion, Seleccion d)throws SQLException{
+      
+         
+        try{
+            
+           Statement sta = conexion.createStatement();
+           String consulta = "SELECT goles_favor - goles_contra as diferencia, nombre from seleccion ORDER BY `diferencia` DESC";
+           ResultSet rs = sta.executeQuery(consulta);
+      
+           rs.next();
+            m1 = rs.getInt("diferencia");
+            
+          
+            n1 = rs.getString("nombre");
+       
+       
+      
+         
+           rs.close();
+           sta.close();
+            
+        }
+        catch (SQLException ex){
+            
+            throw new SQLException(ex);
+        
+        }
+        
     }
 }

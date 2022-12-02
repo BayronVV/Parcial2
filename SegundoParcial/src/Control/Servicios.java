@@ -64,4 +64,75 @@ public class Servicios {
     
     }
     
+    public Integer MayorD(Seleccion d){
+        SeleccionServicios ds = new SeleccionServicios();
+        try{
+        
+         
+            ds.mayorGoles(Conexion.obtener(), d);
+              
+        }
+        catch(Exception e){
+
+           
+        }
+        
+        return ds.m;
+        
+        
+    }
+    
+    public String MayorS(Seleccion d){
+        SeleccionServicios ds = new SeleccionServicios();
+        try{
+        
+         
+            ds.mayorGoles(Conexion.obtener(), d);
+              
+        }
+        catch(Exception e){
+
+           
+        }
+        
+        return ds.n;
+        
+        
+    }
+    
+     public Integer MayorDifM(Seleccion d){
+        SeleccionServicios ds = new SeleccionServicios();
+        try{
+        
+         
+            ds.mayorDif(Conexion.obtener(), d);
+              
+        }
+        catch(Exception e){
+
+           
+        }
+        
+        return ds.m1;
+        
+        
+    }
+    
+    public String MayorDifN(Seleccion d){
+        SeleccionServicios ds = new SeleccionServicios();
+        try{
+        
+         
+            ds.mayorDif(Conexion.obtener(), d);
+              
+        }
+        catch(Exception e){
+
+           
+        }
+        
+        return ds.n1;
+        
+        
+    }
 }
