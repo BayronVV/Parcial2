@@ -135,4 +135,22 @@ public class Servicios {
         
         
     }
+    
+    public void Lista(Seleccion d){
+        SeleccionServicios ds = new SeleccionServicios();
+        try{
+        
+         
+            ds.buscar2(Conexion.obtener(), d);
+              
+        }
+        catch(Exception e){
+
+           
+        }
+        
+        //return ds.v;
+        
+        
+    }
 }

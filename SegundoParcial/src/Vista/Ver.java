@@ -11,6 +11,7 @@ package Vista;
  */
 import Modelo.*;
 import Control.*;
+import java.util.ArrayList;
 public class Ver extends javax.swing.JFrame {
 
     /**
@@ -74,6 +75,10 @@ public class Ver extends javax.swing.JFrame {
         txtPartidosj = new javax.swing.JTextField();
         btnMPG = new javax.swing.JButton();
         btnMDG = new javax.swing.JButton();
+        btnLista = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtLista = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -145,52 +150,74 @@ public class Ver extends javax.swing.JFrame {
             }
         });
 
+        btnLista.setText("Lista");
+        btnLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListaActionPerformed(evt);
+            }
+        });
+
+        txtLista.setColumns(20);
+        txtLista.setRows(5);
+        jScrollPane1.setViewportView(txtLista);
+
+        jButton1.setText("Limpiar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addGap(38, 38, 38)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtId)
-                            .addComponent(txtNombre)
-                            .addComponent(txtContinente)
-                            .addComponent(txtTecnico)
-                            .addComponent(txtGolesf)
-                            .addComponent(txtGolesc)
-                            .addComponent(txtPartidosg)
-                            .addComponent(txtPartidosp)
-                            .addComponent(txtPartidosj, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnGuardar)
-                            .addComponent(btnEliminar))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnGuardar)
+                                .addComponent(btnEliminar))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(btnBuscar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnMPG))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(btnActualizar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnMDG)))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                                .addComponent(btnActualizar))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnMDG)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(btnLista))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnMPG)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton1))))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel9))
+                            .addGap(38, 38, 38)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtId)
+                                .addComponent(txtNombre)
+                                .addComponent(txtContinente)
+                                .addComponent(txtTecnico)
+                                .addComponent(txtGolesf)
+                                .addComponent(txtGolesc)
+                                .addComponent(txtPartidosg)
+                                .addComponent(txtPartidosp)
+                                .addComponent(txtPartidosj, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,13 +262,17 @@ public class Ver extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
                     .addComponent(btnBuscar)
-                    .addComponent(btnMPG))
+                    .addComponent(btnMPG)
+                    .addComponent(jButton1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnActualizar)
                     .addComponent(btnEliminar)
-                    .addComponent(btnMDG))
-                .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(btnMDG)
+                    .addComponent(btnLista))
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -382,6 +413,34 @@ public class Ver extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnMDGActionPerformed
 
+    private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
+       
+        Seleccion d = new Seleccion();
+        Servicios s = new Servicios();
+        SeleccionServicios ss = new SeleccionServicios();
+        
+        s.Lista(d);
+        
+         String t="";
+         for(int i =0; i<Seleccion.selecciones.size(); i++){
+           
+          // txtLista.setText(Seleccion.selecciones.get(i).getNombre()+"\n");
+           
+          
+           txtLista.setText(t+= Seleccion.selecciones.get(i).mostrar());
+
+         }
+        
+      
+     
+       
+    }//GEN-LAST:event_btnListaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      
+        txtLista.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -392,8 +451,10 @@ public class Ver extends javax.swing.JFrame {
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnGuardar;
+    public javax.swing.JButton btnLista;
     public javax.swing.JButton btnMDG;
     public javax.swing.JButton btnMPG;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -404,10 +465,12 @@ public class Ver extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtContinente;
     private javax.swing.JTextField txtGolesc;
     private javax.swing.JTextField txtGolesf;
     private javax.swing.JTextField txtId;
+    public javax.swing.JTextArea txtLista;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPartidosg;
     private javax.swing.JTextField txtPartidosj;

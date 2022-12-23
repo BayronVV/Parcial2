@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.3.0-dev+20221020.10dfc6d641
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-12-2022 a las 18:11:34
+-- Tiempo de generación: 02-12-2022 a las 21:04:50
 -- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Versión de PHP: 8.1.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -67,7 +67,9 @@ CREATE TABLE `seleccion` (
 --
 
 INSERT INTO `seleccion` (`id`, `nombre`, `continente_id`, `tecnico`, `goles_favor`, `goles_contra`, `partidos_ganados`, `partidos_perdidos`, `partidos_jugados`) VALUES
-(1, 'Colombia', 1, 'jose', 6, 4, 6, 2, 8);
+(1, 'Colombia', 1, 'josefa', 6, 4, 6, 2, 8),
+(2, 'argelia', 3, 'manuel', 4, 2, 3, 2, 5),
+(3, 'eeuu', 2, 'will', 7, 2, 7, 2, 9);
 
 --
 -- Índices para tablas volcadas

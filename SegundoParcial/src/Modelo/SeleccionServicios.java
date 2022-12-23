@@ -10,12 +10,14 @@ package Modelo;
  * @author estudiante
  */
 import java.sql.*;
+import Vista.Ver;
+
 public class SeleccionServicios {
     
    public Integer m,m1;
-   public String n,n1;
+   public String n,n1,v, t;
           
-   
+   Ver l = new Ver();
    
     public void guardar(Connection conexion, Seleccion d) throws SQLException{
     
@@ -84,7 +86,7 @@ public class SeleccionServicios {
               d.setPartidos_perdidos(rs.getInt("partidos_perdidos"));
               d.setPartidos_jugados(rs.getInt("partidos_jugados"));
               
-              
+             
              
           
           }
@@ -99,6 +101,61 @@ public class SeleccionServicios {
         
         }
     }
+    
+    public void buscar2(Connection conexion, Seleccion d) throws SQLException{
+      
+      
+        try{
+            
+           PreparedStatement consulta;
+           consulta = conexion.prepareStatement("select * from seleccion");
+           //consulta.setInt(1, d.getId());
+          ResultSet rs = consulta.executeQuery();
+          
+          while(rs.next()){
+              
+             
+             
+              d.setNombre(rs.getString("nombre"));
+              d.setContinente_id(rs.getInt("continente_id"));
+              d.setTecnico(rs.getString("tecnico"));
+              d.setGoles_favor(rs.getInt("goles_favor"));
+              d.setGoles_contra(rs.getInt("goles_contra"));
+              d.setPartidos_ganados(rs.getInt("partidos_ganados"));
+              d.setPartidos_perdidos(rs.getInt("partidos_perdidos"));
+              d.setPartidos_jugados(rs.getInt("partidos_jugados"));
+              Seleccion.selecciones.add(new Seleccion(d.getNombre(), d.getContinente_id(),  d.getTecnico(),  d.getGoles_favor(),  d.getGoles_contra(),  d.getPartidos_ganados(),  d.getPartidos_perdidos(),  d.getPartidos_jugados()));
+              
+              v="Nombre: "+d.getNombre()+" Tecnico: "+d.getTecnico()+" con "+d.getPartidos_jugados()+" partidos jugados";
+              System.out.println(""+v); 
+             
+              
+          
+          }
+              t="";
+             for(int i =0; i<Seleccion.selecciones.size(); i++){
+                 
+                // System.out.println(""+Seleccion.selecciones.get(i).getNombre()); 
+                 t+= Seleccion.selecciones.get(i).mostrar();
+             }
+             System.out.println(""+t);
+    
+      //  t = " \n  Nombre: "+rs.getString("nombre")+" Continente: "+rs.getInt("continente_id")+" Entrenador: "+rs.getString("tecnico");  
+        
+
+    
+    
+          
+            
+        }
+        catch (SQLException ex){
+            
+            throw new SQLException(ex);
+        
+        }
+    }
+    
+    
     
     public void actualizar(Connection conexion, Seleccion d) throws SQLException{
     

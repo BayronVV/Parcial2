@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author estudiante
@@ -21,6 +23,9 @@ public class Seleccion {
     private Integer partidos_perdidos;
     private Integer partidos_jugados;
 
+    
+   public static ArrayList<Seleccion> selecciones = new ArrayList<>();
+   
     public Seleccion() {
     }
 
@@ -39,6 +44,18 @@ public class Seleccion {
         this.partidos_perdidos = partidos_perdidos;
         this.partidos_jugados = partidos_jugados;
     }
+
+    public Seleccion(String nombre, Integer continente_id, String tecnico, Integer goles_favor, Integer goles_contra, Integer partidos_ganados, Integer partidos_perdidos, Integer partidos_jugados) {
+        this.nombre = nombre;
+        this.continente_id = continente_id;
+        this.tecnico = tecnico;
+        this.goles_favor = goles_favor;
+        this.goles_contra = goles_contra;
+        this.partidos_ganados = partidos_ganados;
+        this.partidos_perdidos = partidos_perdidos;
+        this.partidos_jugados = partidos_jugados;
+    }
+    
 
     public Integer getId() {
         return id;
@@ -111,6 +128,12 @@ public class Seleccion {
     public void setPartidos_jugados(Integer partidos_jugados) {
         this.partidos_jugados = partidos_jugados;
     }
+    String h;
+    public String mostrar(){
+     
+      return  h = "Nombre :"+nombre+", Tecnico(a): "+tecnico+", Goles a favor: "+goles_favor+", goles en contra: "+goles_contra+"\n";
     
+    }
+   
     
 }
