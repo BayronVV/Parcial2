@@ -419,19 +419,19 @@ public class Ver extends javax.swing.JFrame {
         Servicios s = new Servicios();
         SeleccionServicios ss = new SeleccionServicios();
         
-        s.Lista(d);
         
-         String t="";
-         for(int i =0; i<Seleccion.selecciones.size(); i++){
+        
+      //   String t="";
+       //  for(int i =0; i<Seleccion.selecciones.size(); i++){
            
           // txtLista.setText(Seleccion.selecciones.get(i).getNombre()+"\n");
            
           
-           txtLista.setText(t+= Seleccion.selecciones.get(i).mostrar());
+          //    t+= Seleccion.selecciones.get(i).mostrar();
 
-         }
+      //   }
         
-      
+      txtLista.setText(s.Lista(d));
      
        
     }//GEN-LAST:event_btnListaActionPerformed

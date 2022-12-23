@@ -136,7 +136,7 @@ public class Servicios {
         
     }
     
-    public void Lista(Seleccion d){
+    public String Lista(Seleccion d){
         SeleccionServicios ds = new SeleccionServicios();
         try{
         
@@ -149,7 +149,7 @@ public class Servicios {
            
         }
         
-        //return ds.v;
+        return ds.t;
         
         
     }
